@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.xydata.mapper.TInfusionpackMapper">
+  <resultMap id="BaseResultMap" type="cn.xydata.entity.TInfusionpack">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="GMTCREATE" jdbcType="TIMESTAMP" property="gmtcreate" />
+    <result column="GMTMODIFIED" jdbcType="TIMESTAMP" property="gmtmodified" />
+    <result column="ISDELETED" jdbcType="INTEGER" property="isdeleted" />
+    <result column="NAMECREATE" jdbcType="VARCHAR" property="namecreate" />
+    <result column="NAMEMODIFIED" jdbcType="VARCHAR" property="namemodified" />
+    <result column="PERSONQRCODE" jdbcType="VARCHAR" property="personqrcode" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="AVATAR" jdbcType="VARCHAR" property="avatar" />
+    <result column="AGE" jdbcType="VARCHAR" property="age" />
+    <result column="SEX" jdbcType="VARCHAR" property="sex" />
+    <result column="CREATEDAT" jdbcType="TIMESTAMP" property="createdat" />
+    <result column="STARTAT" jdbcType="TIMESTAMP" property="startat" />
+    <result column="FINISHAT" jdbcType="TIMESTAMP" property="finishat" />
+    <result column="DEPART" jdbcType="VARCHAR" property="depart" />
+    <result column="DOCTOR" jdbcType="VARCHAR" property="doctor" />
+    <result column="DIAGNOSE" jdbcType="VARCHAR" property="diagnose" />
+    <result column="TOTALINJECTTIMES" jdbcType="INTEGER" property="totalinjecttimes" />
+    <result column="LOCALINJECTTIMES" jdbcType="INTEGER" property="localinjecttimes" />
+    <result column="FINISHINJECTTIMES" jdbcType="INTEGER" property="finishinjecttimes" />
+    <result column="RECEIPTNO" jdbcType="VARCHAR" property="receiptno" />
+    <result column="CLINICNO" jdbcType="VARCHAR" property="clinicno" />
+    <result column="PRESCRIPTIONNO" jdbcType="VARCHAR" property="prescriptionno" />
+    <result column="STATUS" jdbcType="INTEGER" property="status" />
+    <result column="STATUSTEXT" jdbcType="VARCHAR" property="statustext" />
+    <result column="AREANO" jdbcType="VARCHAR" property="areano" />
+    <result column="SEATNO" jdbcType="VARCHAR" property="seatno" />
+    <result column="ORDERNO" jdbcType="VARCHAR" property="orderno" />
+    <result column="CARDNUMBER" jdbcType="VARCHAR" property="cardnumber" />
+    <result column="INSTANCEID" jdbcType="VARCHAR" property="instanceid" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_infusionpack
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.xydata.entity.TInfusionpack">
+    insert into t_infusionpack (ID, GMTCREATE, GMTMODIFIED, 
+      ISDELETED, NAMECREATE, NAMEMODIFIED, 
+      PERSONQRCODE, NAME, AVATAR, 
+      AGE, SEX, CREATEDAT, 
+      STARTAT, FINISHAT, DEPART, 
+      DOCTOR, DIAGNOSE, TOTALINJECTTIMES, 
+      LOCALINJECTTIMES, FINISHINJECTTIMES, RECEIPTNO, 
+      CLINICNO, PRESCRIPTIONNO, STATUS, 
+      STATUSTEXT, AREANO, SEATNO, 
+      ORDERNO, CARDNUMBER, INSTANCEID
+      )
+    values (#{id,jdbcType=VARCHAR}, #{gmtcreate,jdbcType=TIMESTAMP}, #{gmtmodified,jdbcType=TIMESTAMP}, 
+      #{isdeleted,jdbcType=INTEGER}, #{namecreate,jdbcType=VARCHAR}, #{namemodified,jdbcType=VARCHAR}, 
+      #{personqrcode,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{avatar,jdbcType=VARCHAR}, 
+      #{age,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{createdat,jdbcType=TIMESTAMP}, 
+      #{startat,jdbcType=TIMESTAMP}, #{finishat,jdbcType=TIMESTAMP}, #{depart,jdbcType=VARCHAR}, 
+      #{doctor,jdbcType=VARCHAR}, #{diagnose,jdbcType=VARCHAR}, #{totalinjecttimes,jdbcType=INTEGER}, 
+      #{localinjecttimes,jdbcType=INTEGER}, #{finishinjecttimes,jdbcType=INTEGER}, #{receiptno,jdbcType=VARCHAR}, 
+      #{clinicno,jdbcType=VARCHAR}, #{prescriptionno,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
+      #{statustext,jdbcType=VARCHAR}, #{areano,jdbcType=VARCHAR}, #{seatno,jdbcType=VARCHAR}, 
+      #{orderno,jdbcType=VARCHAR}, #{cardnumber,jdbcType=VARCHAR}, #{instanceid,jdbcType=VARCHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="cn.xydata.entity.TInfusionpack">
+    update t_infusionpack
+    set GMTCREATE = #{gmtcreate,jdbcType=TIMESTAMP},
+      GMTMODIFIED = #{gmtmodified,jdbcType=TIMESTAMP},
+      ISDELETED = #{isdeleted,jdbcType=INTEGER},
+      NAMECREATE = #{namecreate,jdbcType=VARCHAR},
+      NAMEMODIFIED = #{namemodified,jdbcType=VARCHAR},
+      PERSONQRCODE = #{personqrcode,jdbcType=VARCHAR},
+      NAME = #{name,jdbcType=VARCHAR},
+      AVATAR = #{avatar,jdbcType=VARCHAR},
+      AGE = #{age,jdbcType=VARCHAR},
+      SEX = #{sex,jdbcType=VARCHAR},
+      CREATEDAT = #{createdat,jdbcType=TIMESTAMP},
+      STARTAT = #{startat,jdbcType=TIMESTAMP},
+      FINISHAT = #{finishat,jdbcType=TIMESTAMP},
+      DEPART = #{depart,jdbcType=VARCHAR},
+      DOCTOR = #{doctor,jdbcType=VARCHAR},
+      DIAGNOSE = #{diagnose,jdbcType=VARCHAR},
+      TOTALINJECTTIMES = #{totalinjecttimes,jdbcType=INTEGER},
+      LOCALINJECTTIMES = #{localinjecttimes,jdbcType=INTEGER},
+      FINISHINJECTTIMES = #{finishinjecttimes,jdbcType=INTEGER},
+      RECEIPTNO = #{receiptno,jdbcType=VARCHAR},
+      CLINICNO = #{clinicno,jdbcType=VARCHAR},
+      PRESCRIPTIONNO = #{prescriptionno,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=INTEGER},
+      STATUSTEXT = #{statustext,jdbcType=VARCHAR},
+      AREANO = #{areano,jdbcType=VARCHAR},
+      SEATNO = #{seatno,jdbcType=VARCHAR},
+      ORDERNO = #{orderno,jdbcType=VARCHAR},
+      CARDNUMBER = #{cardnumber,jdbcType=VARCHAR},
+      INSTANCEID = #{instanceid,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select ID, GMTCREATE, GMTMODIFIED, ISDELETED, NAMECREATE, NAMEMODIFIED, PERSONQRCODE, 
+    NAME, AVATAR, AGE, SEX, CREATEDAT, STARTAT, FINISHAT, DEPART, DOCTOR, DIAGNOSE, TOTALINJECTTIMES, 
+    LOCALINJECTTIMES, FINISHINJECTTIMES, RECEIPTNO, CLINICNO, PRESCRIPTIONNO, STATUS, 
+    STATUSTEXT, AREANO, SEATNO, ORDERNO, CARDNUMBER, INSTANCEID
+    from t_infusionpack
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select ID, GMTCREATE, GMTMODIFIED, ISDELETED, NAMECREATE, NAMEMODIFIED, PERSONQRCODE, 
+    NAME, AVATAR, AGE, SEX, CREATEDAT, STARTAT, FINISHAT, DEPART, DOCTOR, DIAGNOSE, TOTALINJECTTIMES, 
+    LOCALINJECTTIMES, FINISHINJECTTIMES, RECEIPTNO, CLINICNO, PRESCRIPTIONNO, STATUS, 
+    STATUSTEXT, AREANO, SEATNO, ORDERNO, CARDNUMBER, INSTANCEID
+    from t_infusionpack
+  </select>
+</mapper>

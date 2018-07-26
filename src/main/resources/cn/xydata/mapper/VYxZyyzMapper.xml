@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.xydata.mapper.VYxZyyzMapper">
+  <resultMap id="BaseResultMap" type="cn.xydata.entity.VYxZyyz">
+    <result column="INP_NO" jdbcType="VARCHAR" property="inpNo" />
+    <result column="ORDER_NO" jdbcType="VARCHAR" property="orderNo" />
+    <result column="ORDER_SUB_NO" jdbcType="VARCHAR" property="orderSubNo" />
+    <result column="START_DATE_TIME" jdbcType="VARCHAR" property="startDateTime" />
+    <result column="STOP_DATE_TIME" jdbcType="VARCHAR" property="stopDateTime" />
+    <result column="REPEAT_INDICATOR" jdbcType="VARCHAR" property="repeatIndicator" />
+    <result column="ORDER_CLASS" jdbcType="VARCHAR" property="orderClass" />
+    <result column="ORDER_CODE" jdbcType="VARCHAR" property="orderCode" />
+    <result column="ORDER_TEXT" jdbcType="VARCHAR" property="orderText" />
+    <result column="ORDER_STATUS" jdbcType="VARCHAR" property="orderStatus" />
+    <result column="DOSAGE" jdbcType="VARCHAR" property="dosage" />
+    <result column="DOSAGE_UNITS" jdbcType="VARCHAR" property="dosageUnits" />
+    <result column="DURATION" jdbcType="VARCHAR" property="duration" />
+    <result column="DURATION_UNITS" jdbcType="VARCHAR" property="durationUnits" />
+    <result column="FREQ_COUNTER" jdbcType="VARCHAR" property="freqCounter" />
+    <result column="FREQ_INTERVAL" jdbcType="VARCHAR" property="freqInterval" />
+    <result column="FREQ_INTERVAL_UNIT" jdbcType="VARCHAR" property="freqIntervalUnit" />
+    <result column="PERFORM_RESULT" jdbcType="VARCHAR" property="performResult" />
+    <result column="DOCTOR" jdbcType="VARCHAR" property="doctor" />
+    <result column="STOP_DOCTOR" jdbcType="VARCHAR" property="stopDoctor" />
+    <result column="NURSE" jdbcType="VARCHAR" property="nurse" />
+    <result column="STOP_NURSE" jdbcType="VARCHAR" property="stopNurse" />
+    <result column="ENTER_DATE_TIME" jdbcType="VARCHAR" property="enterDateTime" />
+    <result column="STOP_ORDER_DATE_TIME" jdbcType="VARCHAR" property="stopOrderDateTime" />
+  </resultMap>
+  <insert id="insert" parameterType="cn.xydata.entity.VYxZyyz">
+    insert into v_yx_zyyz (INP_NO, ORDER_NO, ORDER_SUB_NO, 
+      START_DATE_TIME, STOP_DATE_TIME, REPEAT_INDICATOR, 
+      ORDER_CLASS, ORDER_CODE, ORDER_TEXT, 
+      ORDER_STATUS, DOSAGE, DOSAGE_UNITS, 
+      DURATION, DURATION_UNITS, FREQ_COUNTER, 
+      FREQ_INTERVAL, FREQ_INTERVAL_UNIT, PERFORM_RESULT, 
+      DOCTOR, STOP_DOCTOR, NURSE, 
+      STOP_NURSE, ENTER_DATE_TIME, STOP_ORDER_DATE_TIME
+      )
+    values (#{inpNo,jdbcType=VARCHAR}, #{orderNo,jdbcType=VARCHAR}, #{orderSubNo,jdbcType=VARCHAR}, 
+      #{startDateTime,jdbcType=VARCHAR}, #{stopDateTime,jdbcType=VARCHAR}, #{repeatIndicator,jdbcType=VARCHAR}, 
+      #{orderClass,jdbcType=VARCHAR}, #{orderCode,jdbcType=VARCHAR}, #{orderText,jdbcType=VARCHAR}, 
+      #{orderStatus,jdbcType=VARCHAR}, #{dosage,jdbcType=VARCHAR}, #{dosageUnits,jdbcType=VARCHAR}, 
+      #{duration,jdbcType=VARCHAR}, #{durationUnits,jdbcType=VARCHAR}, #{freqCounter,jdbcType=VARCHAR}, 
+      #{freqInterval,jdbcType=VARCHAR}, #{freqIntervalUnit,jdbcType=VARCHAR}, #{performResult,jdbcType=VARCHAR}, 
+      #{doctor,jdbcType=VARCHAR}, #{stopDoctor,jdbcType=VARCHAR}, #{nurse,jdbcType=VARCHAR}, 
+      #{stopNurse,jdbcType=VARCHAR}, #{enterDateTime,jdbcType=VARCHAR}, #{stopOrderDateTime,jdbcType=VARCHAR}
+      )
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select INP_NO, ORDER_NO, ORDER_SUB_NO, START_DATE_TIME, STOP_DATE_TIME, REPEAT_INDICATOR, 
+    ORDER_CLASS, ORDER_CODE, ORDER_TEXT, ORDER_STATUS, DOSAGE, DOSAGE_UNITS, DURATION, 
+    DURATION_UNITS, FREQ_COUNTER, FREQ_INTERVAL, FREQ_INTERVAL_UNIT, PERFORM_RESULT, 
+    DOCTOR, STOP_DOCTOR, NURSE, STOP_NURSE, ENTER_DATE_TIME, STOP_ORDER_DATE_TIME
+    from v_yx_zyyz
+  </select>
+</mapper>

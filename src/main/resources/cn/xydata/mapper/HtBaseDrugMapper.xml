@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.xydata.mapper.HtBaseDrugMapper">
+  <resultMap id="BaseResultMap" type="cn.xydata.entity.HtBaseDrug">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="GMTCREATE" jdbcType="TIMESTAMP" property="gmtcreate" />
+    <result column="GMTMODIFIED" jdbcType="TIMESTAMP" property="gmtmodified" />
+    <result column="ISDELETED" jdbcType="INTEGER" property="isdeleted" />
+    <result column="NAMECREATE" jdbcType="VARCHAR" property="namecreate" />
+    <result column="NAMEMODIFIED" jdbcType="VARCHAR" property="namemodified" />
+    <result column="DRUGNAME" jdbcType="VARCHAR" property="drugname" />
+    <result column="DRUGCODE" jdbcType="VARCHAR" property="drugcode" />
+    <result column="DRUGTYPE" jdbcType="VARCHAR" property="drugtype" />
+    <result column="SPEC" jdbcType="VARCHAR" property="spec" />
+    <result column="UNIT" jdbcType="VARCHAR" property="unit" />
+    <result column="STORAGEUNIT" jdbcType="VARCHAR" property="storageunit" />
+    <result column="STORAGEQUANTITY" jdbcType="VARCHAR" property="storagequantity" />
+    <result column="DISPENSEUNIT" jdbcType="VARCHAR" property="dispenseunit" />
+    <result column="DISPENSEQUANTITY" jdbcType="VARCHAR" property="dispensequantity" />
+    <result column="ORIGIN" jdbcType="VARCHAR" property="origin" />
+    <result column="DOSAGEFORMS" jdbcType="VARCHAR" property="dosageforms" />
+    <result column="DOSAGE" jdbcType="VARCHAR" property="dosage" />
+    <result column="DOSAGEUNIT" jdbcType="VARCHAR" property="dosageunit" />
+    <result column="COMMONNAME" jdbcType="VARCHAR" property="commonname" />
+    <result column="APPROVALNO" jdbcType="VARCHAR" property="approvalno" />
+    <result column="USEBYFRONT" jdbcType="VARCHAR" property="usebyfront" />
+    <result column="USEBYBACKEND" jdbcType="VARCHAR" property="usebybackend" />
+    <result column="PRICE" jdbcType="VARCHAR" property="price" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from ht_base_drug
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.xydata.entity.HtBaseDrug">
+    insert into ht_base_drug (ID, GMTCREATE, GMTMODIFIED, 
+      ISDELETED, NAMECREATE, NAMEMODIFIED, 
+      DRUGNAME, DRUGCODE, DRUGTYPE, 
+      SPEC, UNIT, STORAGEUNIT, 
+      STORAGEQUANTITY, DISPENSEUNIT, DISPENSEQUANTITY, 
+      ORIGIN, DOSAGEFORMS, DOSAGE, 
+      DOSAGEUNIT, COMMONNAME, APPROVALNO, 
+      USEBYFRONT, USEBYBACKEND, PRICE
+      )
+    values (#{id,jdbcType=VARCHAR}, #{gmtcreate,jdbcType=TIMESTAMP}, #{gmtmodified,jdbcType=TIMESTAMP}, 
+      #{isdeleted,jdbcType=INTEGER}, #{namecreate,jdbcType=VARCHAR}, #{namemodified,jdbcType=VARCHAR}, 
+      #{drugname,jdbcType=VARCHAR}, #{drugcode,jdbcType=VARCHAR}, #{drugtype,jdbcType=VARCHAR}, 
+      #{spec,jdbcType=VARCHAR}, #{unit,jdbcType=VARCHAR}, #{storageunit,jdbcType=VARCHAR}, 
+      #{storagequantity,jdbcType=VARCHAR}, #{dispenseunit,jdbcType=VARCHAR}, #{dispensequantity,jdbcType=VARCHAR}, 
+      #{origin,jdbcType=VARCHAR}, #{dosageforms,jdbcType=VARCHAR}, #{dosage,jdbcType=VARCHAR}, 
+      #{dosageunit,jdbcType=VARCHAR}, #{commonname,jdbcType=VARCHAR}, #{approvalno,jdbcType=VARCHAR}, 
+      #{usebyfront,jdbcType=VARCHAR}, #{usebybackend,jdbcType=VARCHAR}, #{price,jdbcType=VARCHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="cn.xydata.entity.HtBaseDrug">
+    update ht_base_drug
+    set GMTCREATE = #{gmtcreate,jdbcType=TIMESTAMP},
+      GMTMODIFIED = #{gmtmodified,jdbcType=TIMESTAMP},
+      ISDELETED = #{isdeleted,jdbcType=INTEGER},
+      NAMECREATE = #{namecreate,jdbcType=VARCHAR},
+      NAMEMODIFIED = #{namemodified,jdbcType=VARCHAR},
+      DRUGNAME = #{drugname,jdbcType=VARCHAR},
+      DRUGCODE = #{drugcode,jdbcType=VARCHAR},
+      DRUGTYPE = #{drugtype,jdbcType=VARCHAR},
+      SPEC = #{spec,jdbcType=VARCHAR},
+      UNIT = #{unit,jdbcType=VARCHAR},
+      STORAGEUNIT = #{storageunit,jdbcType=VARCHAR},
+      STORAGEQUANTITY = #{storagequantity,jdbcType=VARCHAR},
+      DISPENSEUNIT = #{dispenseunit,jdbcType=VARCHAR},
+      DISPENSEQUANTITY = #{dispensequantity,jdbcType=VARCHAR},
+      ORIGIN = #{origin,jdbcType=VARCHAR},
+      DOSAGEFORMS = #{dosageforms,jdbcType=VARCHAR},
+      DOSAGE = #{dosage,jdbcType=VARCHAR},
+      DOSAGEUNIT = #{dosageunit,jdbcType=VARCHAR},
+      COMMONNAME = #{commonname,jdbcType=VARCHAR},
+      APPROVALNO = #{approvalno,jdbcType=VARCHAR},
+      USEBYFRONT = #{usebyfront,jdbcType=VARCHAR},
+      USEBYBACKEND = #{usebybackend,jdbcType=VARCHAR},
+      PRICE = #{price,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select ID, GMTCREATE, GMTMODIFIED, ISDELETED, NAMECREATE, NAMEMODIFIED, DRUGNAME, 
+    DRUGCODE, DRUGTYPE, SPEC, UNIT, STORAGEUNIT, STORAGEQUANTITY, DISPENSEUNIT, DISPENSEQUANTITY, 
+    ORIGIN, DOSAGEFORMS, DOSAGE, DOSAGEUNIT, COMMONNAME, APPROVALNO, USEBYFRONT, USEBYBACKEND, 
+    PRICE
+    from ht_base_drug
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select ID, GMTCREATE, GMTMODIFIED, ISDELETED, NAMECREATE, NAMEMODIFIED, DRUGNAME, 
+    DRUGCODE, DRUGTYPE, SPEC, UNIT, STORAGEUNIT, STORAGEQUANTITY, DISPENSEUNIT, DISPENSEQUANTITY, 
+    ORIGIN, DOSAGEFORMS, DOSAGE, DOSAGEUNIT, COMMONNAME, APPROVALNO, USEBYFRONT, USEBYBACKEND, 
+    PRICE
+    from ht_base_drug
+  </select>
+</mapper>

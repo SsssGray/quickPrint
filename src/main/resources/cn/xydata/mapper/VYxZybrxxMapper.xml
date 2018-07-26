@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.xydata.mapper.VYxZybrxxMapper">
+  <resultMap id="BaseResultMap" type="cn.xydata.entity.VYxZybrxx">
+    <result column="INP_NO" jdbcType="VARCHAR" property="inpNo" />
+    <result column="DEPT_CODE" jdbcType="VARCHAR" property="deptCode" />
+    <result column="DEPT_NAME" jdbcType="VARCHAR" property="deptName" />
+    <result column="WARD_CODE" jdbcType="VARCHAR" property="wardCode" />
+    <result column="WARD_NAME" jdbcType="VARCHAR" property="wardName" />
+    <result column="BED_NO" jdbcType="VARCHAR" property="bedNo" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="SEX" jdbcType="VARCHAR" property="sex" />
+    <result column="BIRTHDAY" jdbcType="VARCHAR" property="birthday" />
+    <result column="AGE" jdbcType="VARCHAR" property="age" />
+    <result column="MOBILE_PHONE" jdbcType="VARCHAR" property="mobilePhone" />
+    <result column="ADDRESS" jdbcType="VARCHAR" property="address" />
+    <result column="ID_NO" jdbcType="VARCHAR" property="idNo" />
+    <result column="BALANCE" jdbcType="VARCHAR" property="balance" />
+    <result column="IN_HOS_DATE" jdbcType="VARCHAR" property="inHosDate" />
+    <result column="DIAGNOSIS" jdbcType="VARCHAR" property="diagnosis" />
+    <result column="SETTLED_INDICATOR" jdbcType="VARCHAR" property="settledIndicator" />
+    <result column="OUT_HOS_DATE" jdbcType="VARCHAR" property="outHosDate" />
+    <result column="BRXZ" jdbcType="VARCHAR" property="brxz" />
+  </resultMap>
+  <insert id="insert" parameterType="cn.xydata.entity.VYxZybrxx">
+    insert into v_yx_zybrxx (INP_NO, DEPT_CODE, DEPT_NAME, 
+      WARD_CODE, WARD_NAME, BED_NO, 
+      NAME, SEX, BIRTHDAY, 
+      AGE, MOBILE_PHONE, ADDRESS, 
+      ID_NO, BALANCE, IN_HOS_DATE, 
+      DIAGNOSIS, SETTLED_INDICATOR, OUT_HOS_DATE, 
+      BRXZ)
+    values (#{inpNo,jdbcType=VARCHAR}, #{deptCode,jdbcType=VARCHAR}, #{deptName,jdbcType=VARCHAR}, 
+      #{wardCode,jdbcType=VARCHAR}, #{wardName,jdbcType=VARCHAR}, #{bedNo,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{birthday,jdbcType=VARCHAR}, 
+      #{age,jdbcType=VARCHAR}, #{mobilePhone,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+      #{idNo,jdbcType=VARCHAR}, #{balance,jdbcType=VARCHAR}, #{inHosDate,jdbcType=VARCHAR}, 
+      #{diagnosis,jdbcType=VARCHAR}, #{settledIndicator,jdbcType=VARCHAR}, #{outHosDate,jdbcType=VARCHAR}, 
+      #{brxz,jdbcType=VARCHAR})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select INP_NO, DEPT_CODE, DEPT_NAME, WARD_CODE, WARD_NAME, BED_NO, NAME, SEX, BIRTHDAY, 
+    AGE, MOBILE_PHONE, ADDRESS, ID_NO, BALANCE, IN_HOS_DATE, DIAGNOSIS, SETTLED_INDICATOR, 
+    OUT_HOS_DATE, BRXZ
+    from v_yx_zybrxx
+  </select>
+</mapper>

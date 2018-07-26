@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.xydata.mapper.TBackuplogMapper">
+  <resultMap id="BaseResultMap" type="cn.xydata.entity.TBackuplog">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="GMTCREATE" jdbcType="TIMESTAMP" property="gmtcreate" />
+    <result column="GMTMODIFIED" jdbcType="TIMESTAMP" property="gmtmodified" />
+    <result column="ISDELETED" jdbcType="INTEGER" property="isdeleted" />
+    <result column="NAMECREATE" jdbcType="VARCHAR" property="namecreate" />
+    <result column="NAMEMODIFIED" jdbcType="VARCHAR" property="namemodified" />
+    <result column="OPERATION" jdbcType="VARCHAR" property="operation" />
+    <result column="REALNAME" jdbcType="VARCHAR" property="realname" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="TIME" jdbcType="VARCHAR" property="time" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_backuplog
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.xydata.entity.TBackuplog">
+    insert into t_backuplog (ID, GMTCREATE, GMTMODIFIED, 
+      ISDELETED, NAMECREATE, NAMEMODIFIED, 
+      OPERATION, REALNAME, STATUS, 
+      TIME)
+    values (#{id,jdbcType=VARCHAR}, #{gmtcreate,jdbcType=TIMESTAMP}, #{gmtmodified,jdbcType=TIMESTAMP}, 
+      #{isdeleted,jdbcType=INTEGER}, #{namecreate,jdbcType=VARCHAR}, #{namemodified,jdbcType=VARCHAR}, 
+      #{operation,jdbcType=VARCHAR}, #{realname,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{time,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="cn.xydata.entity.TBackuplog">
+    update t_backuplog
+    set GMTCREATE = #{gmtcreate,jdbcType=TIMESTAMP},
+      GMTMODIFIED = #{gmtmodified,jdbcType=TIMESTAMP},
+      ISDELETED = #{isdeleted,jdbcType=INTEGER},
+      NAMECREATE = #{namecreate,jdbcType=VARCHAR},
+      NAMEMODIFIED = #{namemodified,jdbcType=VARCHAR},
+      OPERATION = #{operation,jdbcType=VARCHAR},
+      REALNAME = #{realname,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=VARCHAR},
+      TIME = #{time,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select ID, GMTCREATE, GMTMODIFIED, ISDELETED, NAMECREATE, NAMEMODIFIED, OPERATION, 
+    REALNAME, STATUS, TIME
+    from t_backuplog
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select ID, GMTCREATE, GMTMODIFIED, ISDELETED, NAMECREATE, NAMEMODIFIED, OPERATION, 
+    REALNAME, STATUS, TIME
+    from t_backuplog
+  </select>
+</mapper>

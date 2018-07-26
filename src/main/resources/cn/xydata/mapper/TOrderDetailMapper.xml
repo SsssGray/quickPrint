@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.xydata.mapper.TOrderDetailMapper">
+  <resultMap id="BaseResultMap" type="cn.xydata.entity.TOrderDetail">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="GMTCREATE" jdbcType="TIMESTAMP" property="gmtcreate" />
+    <result column="GMTMODIFIED" jdbcType="TIMESTAMP" property="gmtmodified" />
+    <result column="NAMECREATE" jdbcType="VARCHAR" property="namecreate" />
+    <result column="NAMEMODIFIED" jdbcType="VARCHAR" property="namemodified" />
+    <result column="ISDELETED" jdbcType="INTEGER" property="isdeleted" />
+    <result column="ORDERID" jdbcType="VARCHAR" property="orderid" />
+    <result column="FOODMENUID" jdbcType="VARCHAR" property="foodmenuid" />
+    <result column="ACTIVE" jdbcType="VARCHAR" property="active" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+    <result column="NUMBER" jdbcType="INTEGER" property="number" />
+    <result column="SKUFROM" jdbcType="VARCHAR" property="skufrom" />
+    <result column="SKUID" jdbcType="VARCHAR" property="skuid" />
+    <result column="HISTORYPRICE" jdbcType="VARCHAR" property="historyprice" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_order_detail
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.xydata.entity.TOrderDetail">
+    insert into t_order_detail (ID, GMTCREATE, GMTMODIFIED, 
+      NAMECREATE, NAMEMODIFIED, ISDELETED, 
+      ORDERID, FOODMENUID, ACTIVE, 
+      REMARK, NUMBER, SKUFROM, 
+      SKUID, HISTORYPRICE)
+    values (#{id,jdbcType=VARCHAR}, #{gmtcreate,jdbcType=TIMESTAMP}, #{gmtmodified,jdbcType=TIMESTAMP}, 
+      #{namecreate,jdbcType=VARCHAR}, #{namemodified,jdbcType=VARCHAR}, #{isdeleted,jdbcType=INTEGER}, 
+      #{orderid,jdbcType=VARCHAR}, #{foodmenuid,jdbcType=VARCHAR}, #{active,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{number,jdbcType=INTEGER}, #{skufrom,jdbcType=VARCHAR}, 
+      #{skuid,jdbcType=VARCHAR}, #{historyprice,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="cn.xydata.entity.TOrderDetail">
+    update t_order_detail
+    set GMTCREATE = #{gmtcreate,jdbcType=TIMESTAMP},
+      GMTMODIFIED = #{gmtmodified,jdbcType=TIMESTAMP},
+      NAMECREATE = #{namecreate,jdbcType=VARCHAR},
+      NAMEMODIFIED = #{namemodified,jdbcType=VARCHAR},
+      ISDELETED = #{isdeleted,jdbcType=INTEGER},
+      ORDERID = #{orderid,jdbcType=VARCHAR},
+      FOODMENUID = #{foodmenuid,jdbcType=VARCHAR},
+      ACTIVE = #{active,jdbcType=VARCHAR},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      NUMBER = #{number,jdbcType=INTEGER},
+      SKUFROM = #{skufrom,jdbcType=VARCHAR},
+      SKUID = #{skuid,jdbcType=VARCHAR},
+      HISTORYPRICE = #{historyprice,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select ID, GMTCREATE, GMTMODIFIED, NAMECREATE, NAMEMODIFIED, ISDELETED, ORDERID, 
+    FOODMENUID, ACTIVE, REMARK, NUMBER, SKUFROM, SKUID, HISTORYPRICE
+    from t_order_detail
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select ID, GMTCREATE, GMTMODIFIED, NAMECREATE, NAMEMODIFIED, ISDELETED, ORDERID, 
+    FOODMENUID, ACTIVE, REMARK, NUMBER, SKUFROM, SKUID, HISTORYPRICE
+    from t_order_detail
+  </select>
+</mapper>

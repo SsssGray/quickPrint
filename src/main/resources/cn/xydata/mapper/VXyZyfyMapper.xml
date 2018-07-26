@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.xydata.mapper.VXyZyfyMapper">
+  <resultMap id="BaseResultMap" type="cn.xydata.entity.VXyZyfy">
+    <result column="INP_NO" jdbcType="VARCHAR" property="inpNo" />
+    <result column="ITEM_NO" jdbcType="VARCHAR" property="itemNo" />
+    <result column="ITEM_CODE" jdbcType="VARCHAR" property="itemCode" />
+    <result column="ITEM_NAME" jdbcType="VARCHAR" property="itemName" />
+    <result column="PRICE" jdbcType="VARCHAR" property="price" />
+    <result column="QTY" jdbcType="VARCHAR" property="qty" />
+    <result column="FEE_DATE" jdbcType="VARCHAR" property="feeDate" />
+  </resultMap>
+  <insert id="insert" parameterType="cn.xydata.entity.VXyZyfy">
+    insert into v_xy_zyfy (INP_NO, ITEM_NO, ITEM_CODE, 
+      ITEM_NAME, PRICE, QTY, 
+      FEE_DATE)
+    values (#{inpNo,jdbcType=VARCHAR}, #{itemNo,jdbcType=VARCHAR}, #{itemCode,jdbcType=VARCHAR}, 
+      #{itemName,jdbcType=VARCHAR}, #{price,jdbcType=VARCHAR}, #{qty,jdbcType=VARCHAR}, 
+      #{feeDate,jdbcType=VARCHAR})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select INP_NO, ITEM_NO, ITEM_CODE, ITEM_NAME, PRICE, QTY, FEE_DATE
+    from v_xy_zyfy
+  </select>
+</mapper>

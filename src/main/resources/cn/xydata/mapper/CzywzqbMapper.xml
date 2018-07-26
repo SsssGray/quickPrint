@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.xydata.mapper.CzywzqbMapper">
+  <resultMap id="BaseResultMap" type="cn.xydata.entity.Czywzqb">
+    <result column="BQH" jdbcType="VARCHAR" property="bqh" />
+    <result column="BQMC" jdbcType="VARCHAR" property="bqmc" />
+    <result column="CW" jdbcType="VARCHAR" property="cw" />
+    <result column="ZYH" jdbcType="VARCHAR" property="zyh" />
+  </resultMap>
+  <insert id="insert" parameterType="cn.xydata.entity.Czywzqb">
+    insert into czywzqb (BQH, BQMC, CW, 
+      ZYH)
+    values (#{bqh,jdbcType=VARCHAR}, #{bqmc,jdbcType=VARCHAR}, #{cw,jdbcType=VARCHAR}, 
+      #{zyh,jdbcType=VARCHAR})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select BQH, BQMC, CW, ZYH
+    from czywzqb
+  </select>
+</mapper>

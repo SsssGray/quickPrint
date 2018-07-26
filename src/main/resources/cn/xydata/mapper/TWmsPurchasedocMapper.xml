@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.xydata.mapper.TWmsPurchasedocMapper">
+  <resultMap id="BaseResultMap" type="cn.xydata.entity.TWmsPurchasedoc">
+    <result column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="GMTCREATE" jdbcType="TIMESTAMP" property="gmtcreate" />
+    <result column="NAMECREATE" jdbcType="VARCHAR" property="namecreate" />
+    <result column="GMTMODIFIED" jdbcType="TIMESTAMP" property="gmtmodified" />
+    <result column="NAMEMODIFIED" jdbcType="VARCHAR" property="namemodified" />
+    <result column="ISDELETED" jdbcType="INTEGER" property="isdeleted" />
+    <result column="BUYUNIT" jdbcType="VARCHAR" property="buyunit" />
+    <result column="BUYTIME" jdbcType="DATE" property="buytime" />
+    <result column="MONEY" jdbcType="VARCHAR" property="money" />
+    <result column="STATUS" jdbcType="INTEGER" property="status" />
+    <result column="OPINION" jdbcType="VARCHAR" property="opinion" />
+  </resultMap>
+  <insert id="insert" parameterType="cn.xydata.entity.TWmsPurchasedoc">
+    insert into t_wms_purchasedoc (ID, GMTCREATE, NAMECREATE, 
+      GMTMODIFIED, NAMEMODIFIED, ISDELETED, 
+      BUYUNIT, BUYTIME, MONEY, 
+      STATUS, OPINION)
+    values (#{id,jdbcType=VARCHAR}, #{gmtcreate,jdbcType=TIMESTAMP}, #{namecreate,jdbcType=VARCHAR}, 
+      #{gmtmodified,jdbcType=TIMESTAMP}, #{namemodified,jdbcType=VARCHAR}, #{isdeleted,jdbcType=INTEGER}, 
+      #{buyunit,jdbcType=VARCHAR}, #{buytime,jdbcType=DATE}, #{money,jdbcType=VARCHAR}, 
+      #{status,jdbcType=INTEGER}, #{opinion,jdbcType=VARCHAR})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select ID, GMTCREATE, NAMECREATE, GMTMODIFIED, NAMEMODIFIED, ISDELETED, BUYUNIT, 
+    BUYTIME, MONEY, STATUS, OPINION
+    from t_wms_purchasedoc
+  </select>
+</mapper>

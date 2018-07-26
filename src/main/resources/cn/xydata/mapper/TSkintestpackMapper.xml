@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.xydata.mapper.TSkintestpackMapper">
+  <resultMap id="BaseResultMap" type="cn.xydata.entity.TSkintestpack">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="GMTCREATE" jdbcType="TIMESTAMP" property="gmtcreate" />
+    <result column="GMTMODIFIED" jdbcType="TIMESTAMP" property="gmtmodified" />
+    <result column="ISDELETED" jdbcType="INTEGER" property="isdeleted" />
+    <result column="NAMECREATE" jdbcType="VARCHAR" property="namecreate" />
+    <result column="NAMEMODIFIED" jdbcType="VARCHAR" property="namemodified" />
+    <result column="PERSONQRCODE" jdbcType="VARCHAR" property="personqrcode" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="AGE" jdbcType="VARCHAR" property="age" />
+    <result column="SEX" jdbcType="VARCHAR" property="sex" />
+    <result column="CREATEDAT" jdbcType="TIMESTAMP" property="createdat" />
+    <result column="DEPART" jdbcType="VARCHAR" property="depart" />
+    <result column="DOCTOR" jdbcType="VARCHAR" property="doctor" />
+    <result column="STATUS" jdbcType="INTEGER" property="status" />
+    <result column="STATUSTEXT" jdbcType="VARCHAR" property="statustext" />
+    <result column="AREANO" jdbcType="VARCHAR" property="areano" />
+    <result column="SEATNO" jdbcType="VARCHAR" property="seatno" />
+    <result column="ORDERNO" jdbcType="VARCHAR" property="orderno" />
+    <result column="CARDNUMBER" jdbcType="VARCHAR" property="cardnumber" />
+    <result column="CLINICNO" jdbcType="VARCHAR" property="clinicno" />
+    <result column="CURRENTLIQUIDID" jdbcType="VARCHAR" property="currentliquidid" />
+    <result column="CURRENTLIQUIDNAME" jdbcType="VARCHAR" property="currentliquidname" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_skintestpack
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.xydata.entity.TSkintestpack">
+    insert into t_skintestpack (ID, GMTCREATE, GMTMODIFIED, 
+      ISDELETED, NAMECREATE, NAMEMODIFIED, 
+      PERSONQRCODE, NAME, AGE, 
+      SEX, CREATEDAT, DEPART, 
+      DOCTOR, STATUS, STATUSTEXT, 
+      AREANO, SEATNO, ORDERNO, 
+      CARDNUMBER, CLINICNO, CURRENTLIQUIDID, 
+      CURRENTLIQUIDNAME)
+    values (#{id,jdbcType=VARCHAR}, #{gmtcreate,jdbcType=TIMESTAMP}, #{gmtmodified,jdbcType=TIMESTAMP}, 
+      #{isdeleted,jdbcType=INTEGER}, #{namecreate,jdbcType=VARCHAR}, #{namemodified,jdbcType=VARCHAR}, 
+      #{personqrcode,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{age,jdbcType=VARCHAR}, 
+      #{sex,jdbcType=VARCHAR}, #{createdat,jdbcType=TIMESTAMP}, #{depart,jdbcType=VARCHAR}, 
+      #{doctor,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, #{statustext,jdbcType=VARCHAR}, 
+      #{areano,jdbcType=VARCHAR}, #{seatno,jdbcType=VARCHAR}, #{orderno,jdbcType=VARCHAR}, 
+      #{cardnumber,jdbcType=VARCHAR}, #{clinicno,jdbcType=VARCHAR}, #{currentliquidid,jdbcType=VARCHAR}, 
+      #{currentliquidname,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="cn.xydata.entity.TSkintestpack">
+    update t_skintestpack
+    set GMTCREATE = #{gmtcreate,jdbcType=TIMESTAMP},
+      GMTMODIFIED = #{gmtmodified,jdbcType=TIMESTAMP},
+      ISDELETED = #{isdeleted,jdbcType=INTEGER},
+      NAMECREATE = #{namecreate,jdbcType=VARCHAR},
+      NAMEMODIFIED = #{namemodified,jdbcType=VARCHAR},
+      PERSONQRCODE = #{personqrcode,jdbcType=VARCHAR},
+      NAME = #{name,jdbcType=VARCHAR},
+      AGE = #{age,jdbcType=VARCHAR},
+      SEX = #{sex,jdbcType=VARCHAR},
+      CREATEDAT = #{createdat,jdbcType=TIMESTAMP},
+      DEPART = #{depart,jdbcType=VARCHAR},
+      DOCTOR = #{doctor,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=INTEGER},
+      STATUSTEXT = #{statustext,jdbcType=VARCHAR},
+      AREANO = #{areano,jdbcType=VARCHAR},
+      SEATNO = #{seatno,jdbcType=VARCHAR},
+      ORDERNO = #{orderno,jdbcType=VARCHAR},
+      CARDNUMBER = #{cardnumber,jdbcType=VARCHAR},
+      CLINICNO = #{clinicno,jdbcType=VARCHAR},
+      CURRENTLIQUIDID = #{currentliquidid,jdbcType=VARCHAR},
+      CURRENTLIQUIDNAME = #{currentliquidname,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select ID, GMTCREATE, GMTMODIFIED, ISDELETED, NAMECREATE, NAMEMODIFIED, PERSONQRCODE, 
+    NAME, AGE, SEX, CREATEDAT, DEPART, DOCTOR, STATUS, STATUSTEXT, AREANO, SEATNO, ORDERNO, 
+    CARDNUMBER, CLINICNO, CURRENTLIQUIDID, CURRENTLIQUIDNAME
+    from t_skintestpack
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select ID, GMTCREATE, GMTMODIFIED, ISDELETED, NAMECREATE, NAMEMODIFIED, PERSONQRCODE, 
+    NAME, AGE, SEX, CREATEDAT, DEPART, DOCTOR, STATUS, STATUSTEXT, AREANO, SEATNO, ORDERNO, 
+    CARDNUMBER, CLINICNO, CURRENTLIQUIDID, CURRENTLIQUIDNAME
+    from t_skintestpack
+  </select>
+</mapper>

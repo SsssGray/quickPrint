@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.xydata.mapper.TOrderMapper">
+  <resultMap id="BaseResultMap" type="cn.xydata.entity.TOrder">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="GMTCREATE" jdbcType="TIMESTAMP" property="gmtcreate" />
+    <result column="GMTMODIFIED" jdbcType="TIMESTAMP" property="gmtmodified" />
+    <result column="NAMECREATE" jdbcType="VARCHAR" property="namecreate" />
+    <result column="NAMEMODIFIED" jdbcType="VARCHAR" property="namemodified" />
+    <result column="ISDELETED" jdbcType="INTEGER" property="isdeleted" />
+    <result column="ORDERADDR" jdbcType="VARCHAR" property="orderaddr" />
+    <result column="TOTALPRICE" jdbcType="VARCHAR" property="totalprice" />
+    <result column="PAYTYPE" jdbcType="VARCHAR" property="paytype" />
+    <result column="STATUS" jdbcType="VARCHAR" property="status" />
+    <result column="STATUSTEXT" jdbcType="VARCHAR" property="statustext" />
+    <result column="TOTALPRICEOFF" jdbcType="VARCHAR" property="totalpriceoff" />
+    <result column="TOTALDISCOUNT" jdbcType="VARCHAR" property="totaldiscount" />
+    <result column="PAYSUBJECT" jdbcType="VARCHAR" property="paysubject" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+    <result column="TELEPHONE" jdbcType="VARCHAR" property="telephone" />
+    <result column="ORDERSOURCE" jdbcType="VARCHAR" property="ordersource" />
+    <result column="ORDERNO" jdbcType="VARCHAR" property="orderno" />
+    <result column="ORDERSUBJECT" jdbcType="VARCHAR" property="ordersubject" />
+    <result column="CONTENT" jdbcType="VARCHAR" property="content" />
+    <result column="PERIODCODE" jdbcType="VARCHAR" property="periodcode" />
+    <result column="ORDERNAME" jdbcType="VARCHAR" property="ordername" />
+    <result column="PAYNAME" jdbcType="VARCHAR" property="payname" />
+    <result column="SENTOUTTIME" jdbcType="VARCHAR" property="sentouttime" />
+    <result column="SENTOUTTYPE" jdbcType="VARCHAR" property="sentouttype" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_order
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.xydata.entity.TOrder">
+    insert into t_order (ID, GMTCREATE, GMTMODIFIED, 
+      NAMECREATE, NAMEMODIFIED, ISDELETED, 
+      ORDERADDR, TOTALPRICE, PAYTYPE, 
+      STATUS, STATUSTEXT, TOTALPRICEOFF, 
+      TOTALDISCOUNT, PAYSUBJECT, REMARK, 
+      TELEPHONE, ORDERSOURCE, ORDERNO, 
+      ORDERSUBJECT, CONTENT, PERIODCODE, 
+      ORDERNAME, PAYNAME, SENTOUTTIME, 
+      SENTOUTTYPE)
+    values (#{id,jdbcType=VARCHAR}, #{gmtcreate,jdbcType=TIMESTAMP}, #{gmtmodified,jdbcType=TIMESTAMP}, 
+      #{namecreate,jdbcType=VARCHAR}, #{namemodified,jdbcType=VARCHAR}, #{isdeleted,jdbcType=INTEGER}, 
+      #{orderaddr,jdbcType=VARCHAR}, #{totalprice,jdbcType=VARCHAR}, #{paytype,jdbcType=VARCHAR}, 
+      #{status,jdbcType=VARCHAR}, #{statustext,jdbcType=VARCHAR}, #{totalpriceoff,jdbcType=VARCHAR}, 
+      #{totaldiscount,jdbcType=VARCHAR}, #{paysubject,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{telephone,jdbcType=VARCHAR}, #{ordersource,jdbcType=VARCHAR}, #{orderno,jdbcType=VARCHAR}, 
+      #{ordersubject,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{periodcode,jdbcType=VARCHAR}, 
+      #{ordername,jdbcType=VARCHAR}, #{payname,jdbcType=VARCHAR}, #{sentouttime,jdbcType=VARCHAR}, 
+      #{sentouttype,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="cn.xydata.entity.TOrder">
+    update t_order
+    set GMTCREATE = #{gmtcreate,jdbcType=TIMESTAMP},
+      GMTMODIFIED = #{gmtmodified,jdbcType=TIMESTAMP},
+      NAMECREATE = #{namecreate,jdbcType=VARCHAR},
+      NAMEMODIFIED = #{namemodified,jdbcType=VARCHAR},
+      ISDELETED = #{isdeleted,jdbcType=INTEGER},
+      ORDERADDR = #{orderaddr,jdbcType=VARCHAR},
+      TOTALPRICE = #{totalprice,jdbcType=VARCHAR},
+      PAYTYPE = #{paytype,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=VARCHAR},
+      STATUSTEXT = #{statustext,jdbcType=VARCHAR},
+      TOTALPRICEOFF = #{totalpriceoff,jdbcType=VARCHAR},
+      TOTALDISCOUNT = #{totaldiscount,jdbcType=VARCHAR},
+      PAYSUBJECT = #{paysubject,jdbcType=VARCHAR},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      TELEPHONE = #{telephone,jdbcType=VARCHAR},
+      ORDERSOURCE = #{ordersource,jdbcType=VARCHAR},
+      ORDERNO = #{orderno,jdbcType=VARCHAR},
+      ORDERSUBJECT = #{ordersubject,jdbcType=VARCHAR},
+      CONTENT = #{content,jdbcType=VARCHAR},
+      PERIODCODE = #{periodcode,jdbcType=VARCHAR},
+      ORDERNAME = #{ordername,jdbcType=VARCHAR},
+      PAYNAME = #{payname,jdbcType=VARCHAR},
+      SENTOUTTIME = #{sentouttime,jdbcType=VARCHAR},
+      SENTOUTTYPE = #{sentouttype,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select ID, GMTCREATE, GMTMODIFIED, NAMECREATE, NAMEMODIFIED, ISDELETED, ORDERADDR, 
+    TOTALPRICE, PAYTYPE, STATUS, STATUSTEXT, TOTALPRICEOFF, TOTALDISCOUNT, PAYSUBJECT, 
+    REMARK, TELEPHONE, ORDERSOURCE, ORDERNO, ORDERSUBJECT, CONTENT, PERIODCODE, ORDERNAME, 
+    PAYNAME, SENTOUTTIME, SENTOUTTYPE
+    from t_order
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select ID, GMTCREATE, GMTMODIFIED, NAMECREATE, NAMEMODIFIED, ISDELETED, ORDERADDR, 
+    TOTALPRICE, PAYTYPE, STATUS, STATUSTEXT, TOTALPRICEOFF, TOTALDISCOUNT, PAYSUBJECT, 
+    REMARK, TELEPHONE, ORDERSOURCE, ORDERNO, ORDERSUBJECT, CONTENT, PERIODCODE, ORDERNAME, 
+    PAYNAME, SENTOUTTIME, SENTOUTTYPE
+    from t_order
+  </select>
+</mapper>

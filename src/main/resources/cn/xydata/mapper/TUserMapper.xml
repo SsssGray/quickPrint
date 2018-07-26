@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.xydata.mapper.TUserMapper">
+  <resultMap id="BaseResultMap" type="cn.xydata.entity.TUser">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="GMTCREATE" jdbcType="TIMESTAMP" property="gmtcreate" />
+    <result column="GMTMODIFIED" jdbcType="TIMESTAMP" property="gmtmodified" />
+    <result column="ISDELETED" jdbcType="INTEGER" property="isdeleted" />
+    <result column="NAMECREATE" jdbcType="VARCHAR" property="namecreate" />
+    <result column="NAMEMODIFIED" jdbcType="VARCHAR" property="namemodified" />
+    <result column="ADMIN" jdbcType="INTEGER" property="admin" />
+    <result column="LOCKED" jdbcType="INTEGER" property="locked" />
+    <result column="PASSWD" jdbcType="VARCHAR" property="passwd" />
+    <result column="REALNAME" jdbcType="VARCHAR" property="realname" />
+    <result column="USERNAME" jdbcType="VARCHAR" property="username" />
+    <result column="ROLEID" jdbcType="VARCHAR" property="roleid" />
+    <result column="ROLENAME" jdbcType="VARCHAR" property="rolename" />
+    <result column="DESCRIPTION" jdbcType="VARCHAR" property="description" />
+    <result column="TELEPHONE" jdbcType="VARCHAR" property="telephone" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_user
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.xydata.entity.TUser">
+    insert into t_user (id, GMTCREATE, GMTMODIFIED, 
+      ISDELETED, NAMECREATE, NAMEMODIFIED, 
+      ADMIN, LOCKED, PASSWD, 
+      REALNAME, USERNAME, ROLEID, 
+      ROLENAME, DESCRIPTION, TELEPHONE
+      )
+    values (#{id,jdbcType=VARCHAR}, #{gmtcreate,jdbcType=TIMESTAMP}, #{gmtmodified,jdbcType=TIMESTAMP}, 
+      #{isdeleted,jdbcType=INTEGER}, #{namecreate,jdbcType=VARCHAR}, #{namemodified,jdbcType=VARCHAR}, 
+      #{admin,jdbcType=INTEGER}, #{locked,jdbcType=INTEGER}, #{passwd,jdbcType=VARCHAR}, 
+      #{realname,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{roleid,jdbcType=VARCHAR}, 
+      #{rolename,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{telephone,jdbcType=VARCHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="cn.xydata.entity.TUser">
+    update t_user
+    set GMTCREATE = #{gmtcreate,jdbcType=TIMESTAMP},
+      GMTMODIFIED = #{gmtmodified,jdbcType=TIMESTAMP},
+      ISDELETED = #{isdeleted,jdbcType=INTEGER},
+      NAMECREATE = #{namecreate,jdbcType=VARCHAR},
+      NAMEMODIFIED = #{namemodified,jdbcType=VARCHAR},
+      ADMIN = #{admin,jdbcType=INTEGER},
+      LOCKED = #{locked,jdbcType=INTEGER},
+      PASSWD = #{passwd,jdbcType=VARCHAR},
+      REALNAME = #{realname,jdbcType=VARCHAR},
+      USERNAME = #{username,jdbcType=VARCHAR},
+      ROLEID = #{roleid,jdbcType=VARCHAR},
+      ROLENAME = #{rolename,jdbcType=VARCHAR},
+      DESCRIPTION = #{description,jdbcType=VARCHAR},
+      TELEPHONE = #{telephone,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select id, GMTCREATE, GMTMODIFIED, ISDELETED, NAMECREATE, NAMEMODIFIED, ADMIN, LOCKED, 
+    PASSWD, REALNAME, USERNAME, ROLEID, ROLENAME, DESCRIPTION, TELEPHONE
+    from t_user
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, GMTCREATE, GMTMODIFIED, ISDELETED, NAMECREATE, NAMEMODIFIED, ADMIN, LOCKED, 
+    PASSWD, REALNAME, USERNAME, ROLEID, ROLENAME, DESCRIPTION, TELEPHONE
+    from t_user
+  </select>
+</mapper>

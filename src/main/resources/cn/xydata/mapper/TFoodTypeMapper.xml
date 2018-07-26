@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.xydata.mapper.TFoodTypeMapper">
+  <resultMap id="BaseResultMap" type="cn.xydata.entity.TFoodType">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="GMTCREATE" jdbcType="TIMESTAMP" property="gmtcreate" />
+    <result column="GMTMODIFIED" jdbcType="TIMESTAMP" property="gmtmodified" />
+    <result column="ISDELETED" jdbcType="INTEGER" property="isdeleted" />
+    <result column="NAMECREATE" jdbcType="VARCHAR" property="namecreate" />
+    <result column="NAMEMODIFIED" jdbcType="VARCHAR" property="namemodified" />
+    <result column="PARENTID" jdbcType="VARCHAR" property="parentid" />
+    <result column="ISNODE" jdbcType="INTEGER" property="isnode" />
+    <result column="FOODTYPECODE" jdbcType="VARCHAR" property="foodtypecode" />
+    <result column="FOODTYPENAME" jdbcType="VARCHAR" property="foodtypename" />
+    <result column="FOODTYPEFOR" jdbcType="VARCHAR" property="foodtypefor" />
+    <result column="FOODTYPERULE" jdbcType="VARCHAR" property="foodtyperule" />
+    <result column="REMARK" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_food_type
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.xydata.entity.TFoodType">
+    insert into t_food_type (ID, GMTCREATE, GMTMODIFIED, 
+      ISDELETED, NAMECREATE, NAMEMODIFIED, 
+      PARENTID, ISNODE, FOODTYPECODE, 
+      FOODTYPENAME, FOODTYPEFOR, FOODTYPERULE, 
+      REMARK)
+    values (#{id,jdbcType=VARCHAR}, #{gmtcreate,jdbcType=TIMESTAMP}, #{gmtmodified,jdbcType=TIMESTAMP}, 
+      #{isdeleted,jdbcType=INTEGER}, #{namecreate,jdbcType=VARCHAR}, #{namemodified,jdbcType=VARCHAR}, 
+      #{parentid,jdbcType=VARCHAR}, #{isnode,jdbcType=INTEGER}, #{foodtypecode,jdbcType=VARCHAR}, 
+      #{foodtypename,jdbcType=VARCHAR}, #{foodtypefor,jdbcType=VARCHAR}, #{foodtyperule,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="cn.xydata.entity.TFoodType">
+    update t_food_type
+    set GMTCREATE = #{gmtcreate,jdbcType=TIMESTAMP},
+      GMTMODIFIED = #{gmtmodified,jdbcType=TIMESTAMP},
+      ISDELETED = #{isdeleted,jdbcType=INTEGER},
+      NAMECREATE = #{namecreate,jdbcType=VARCHAR},
+      NAMEMODIFIED = #{namemodified,jdbcType=VARCHAR},
+      PARENTID = #{parentid,jdbcType=VARCHAR},
+      ISNODE = #{isnode,jdbcType=INTEGER},
+      FOODTYPECODE = #{foodtypecode,jdbcType=VARCHAR},
+      FOODTYPENAME = #{foodtypename,jdbcType=VARCHAR},
+      FOODTYPEFOR = #{foodtypefor,jdbcType=VARCHAR},
+      FOODTYPERULE = #{foodtyperule,jdbcType=VARCHAR},
+      REMARK = #{remark,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select ID, GMTCREATE, GMTMODIFIED, ISDELETED, NAMECREATE, NAMEMODIFIED, PARENTID, 
+    ISNODE, FOODTYPECODE, FOODTYPENAME, FOODTYPEFOR, FOODTYPERULE, REMARK
+    from t_food_type
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select ID, GMTCREATE, GMTMODIFIED, ISDELETED, NAMECREATE, NAMEMODIFIED, PARENTID, 
+    ISNODE, FOODTYPECODE, FOODTYPENAME, FOODTYPEFOR, FOODTYPERULE, REMARK
+    from t_food_type
+  </select>
+</mapper>

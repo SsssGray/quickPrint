@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.xydata.mapper.HtClientMapper">
+  <resultMap id="BaseResultMap" type="cn.xydata.entity.HtClient">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="GMTCREATE" jdbcType="TIMESTAMP" property="gmtcreate" />
+    <result column="GMTMODIFIED" jdbcType="TIMESTAMP" property="gmtmodified" />
+    <result column="ISDELETED" jdbcType="INTEGER" property="isdeleted" />
+    <result column="NAMECREATE" jdbcType="VARCHAR" property="namecreate" />
+    <result column="NAMEMODIFIED" jdbcType="VARCHAR" property="namemodified" />
+    <result column="CLIENTID" jdbcType="VARCHAR" property="clientid" />
+    <result column="WORKNO" jdbcType="VARCHAR" property="workno" />
+    <result column="REALNAME" jdbcType="VARCHAR" property="realname" />
+    <result column="USERID" jdbcType="VARCHAR" property="userid" />
+    <result column="pharmacyno" jdbcType="VARCHAR" property="pharmacyno" />
+    <result column="WINDOWNO" jdbcType="VARCHAR" property="windowno" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from ht_client
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.xydata.entity.HtClient">
+    insert into ht_client (ID, GMTCREATE, GMTMODIFIED, 
+      ISDELETED, NAMECREATE, NAMEMODIFIED, 
+      CLIENTID, WORKNO, REALNAME, 
+      USERID, pharmacyno, WINDOWNO
+      )
+    values (#{id,jdbcType=VARCHAR}, #{gmtcreate,jdbcType=TIMESTAMP}, #{gmtmodified,jdbcType=TIMESTAMP}, 
+      #{isdeleted,jdbcType=INTEGER}, #{namecreate,jdbcType=VARCHAR}, #{namemodified,jdbcType=VARCHAR}, 
+      #{clientid,jdbcType=VARCHAR}, #{workno,jdbcType=VARCHAR}, #{realname,jdbcType=VARCHAR}, 
+      #{userid,jdbcType=VARCHAR}, #{pharmacyno,jdbcType=VARCHAR}, #{windowno,jdbcType=VARCHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="cn.xydata.entity.HtClient">
+    update ht_client
+    set GMTCREATE = #{gmtcreate,jdbcType=TIMESTAMP},
+      GMTMODIFIED = #{gmtmodified,jdbcType=TIMESTAMP},
+      ISDELETED = #{isdeleted,jdbcType=INTEGER},
+      NAMECREATE = #{namecreate,jdbcType=VARCHAR},
+      NAMEMODIFIED = #{namemodified,jdbcType=VARCHAR},
+      CLIENTID = #{clientid,jdbcType=VARCHAR},
+      WORKNO = #{workno,jdbcType=VARCHAR},
+      REALNAME = #{realname,jdbcType=VARCHAR},
+      USERID = #{userid,jdbcType=VARCHAR},
+      pharmacyno = #{pharmacyno,jdbcType=VARCHAR},
+      WINDOWNO = #{windowno,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select ID, GMTCREATE, GMTMODIFIED, ISDELETED, NAMECREATE, NAMEMODIFIED, CLIENTID, 
+    WORKNO, REALNAME, USERID, pharmacyno, WINDOWNO
+    from ht_client
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select ID, GMTCREATE, GMTMODIFIED, ISDELETED, NAMECREATE, NAMEMODIFIED, CLIENTID, 
+    WORKNO, REALNAME, USERID, pharmacyno, WINDOWNO
+    from ht_client
+  </select>
+</mapper>

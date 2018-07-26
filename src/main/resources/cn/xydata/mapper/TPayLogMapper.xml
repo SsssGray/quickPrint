@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.xydata.mapper.TPayLogMapper">
+  <resultMap id="BaseResultMap" type="cn.xydata.entity.TPayLog">
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="GMTCREATE" jdbcType="TIMESTAMP" property="gmtcreate" />
+    <result column="GMTMODIFIED" jdbcType="TIMESTAMP" property="gmtmodified" />
+    <result column="NAMECREATE" jdbcType="VARCHAR" property="namecreate" />
+    <result column="NAMEMODIFIED" jdbcType="VARCHAR" property="namemodified" />
+    <result column="ISDELETED" jdbcType="INTEGER" property="isdeleted" />
+    <result column="PAYSERIALNO" jdbcType="VARCHAR" property="payserialno" />
+    <result column="PAYID" jdbcType="VARCHAR" property="payid" />
+    <result column="PAYEE" jdbcType="VARCHAR" property="payee" />
+    <result column="PAYEENAME" jdbcType="VARCHAR" property="payeename" />
+    <result column="AMOUNT" jdbcType="VARCHAR" property="amount" />
+    <result column="PAYOR" jdbcType="VARCHAR" property="payor" />
+    <result column="PAYORNAME" jdbcType="VARCHAR" property="payorname" />
+    <result column="PAYTYPE" jdbcType="VARCHAR" property="paytype" />
+    <result column="PAYTIME" jdbcType="TIMESTAMP" property="paytime" />
+    <result column="PERIODCODE" jdbcType="VARCHAR" property="periodcode" />
+    <result column="PAYLOGTYPE" jdbcType="VARCHAR" property="paylogtype" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_pay_log
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.xydata.entity.TPayLog">
+    insert into t_pay_log (ID, GMTCREATE, GMTMODIFIED, 
+      NAMECREATE, NAMEMODIFIED, ISDELETED, 
+      PAYSERIALNO, PAYID, PAYEE, 
+      PAYEENAME, AMOUNT, PAYOR, 
+      PAYORNAME, PAYTYPE, PAYTIME, 
+      PERIODCODE, PAYLOGTYPE)
+    values (#{id,jdbcType=VARCHAR}, #{gmtcreate,jdbcType=TIMESTAMP}, #{gmtmodified,jdbcType=TIMESTAMP}, 
+      #{namecreate,jdbcType=VARCHAR}, #{namemodified,jdbcType=VARCHAR}, #{isdeleted,jdbcType=INTEGER}, 
+      #{payserialno,jdbcType=VARCHAR}, #{payid,jdbcType=VARCHAR}, #{payee,jdbcType=VARCHAR}, 
+      #{payeename,jdbcType=VARCHAR}, #{amount,jdbcType=VARCHAR}, #{payor,jdbcType=VARCHAR}, 
+      #{payorname,jdbcType=VARCHAR}, #{paytype,jdbcType=VARCHAR}, #{paytime,jdbcType=TIMESTAMP}, 
+      #{periodcode,jdbcType=VARCHAR}, #{paylogtype,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="cn.xydata.entity.TPayLog">
+    update t_pay_log
+    set GMTCREATE = #{gmtcreate,jdbcType=TIMESTAMP},
+      GMTMODIFIED = #{gmtmodified,jdbcType=TIMESTAMP},
+      NAMECREATE = #{namecreate,jdbcType=VARCHAR},
+      NAMEMODIFIED = #{namemodified,jdbcType=VARCHAR},
+      ISDELETED = #{isdeleted,jdbcType=INTEGER},
+      PAYSERIALNO = #{payserialno,jdbcType=VARCHAR},
+      PAYID = #{payid,jdbcType=VARCHAR},
+      PAYEE = #{payee,jdbcType=VARCHAR},
+      PAYEENAME = #{payeename,jdbcType=VARCHAR},
+      AMOUNT = #{amount,jdbcType=VARCHAR},
+      PAYOR = #{payor,jdbcType=VARCHAR},
+      PAYORNAME = #{payorname,jdbcType=VARCHAR},
+      PAYTYPE = #{paytype,jdbcType=VARCHAR},
+      PAYTIME = #{paytime,jdbcType=TIMESTAMP},
+      PERIODCODE = #{periodcode,jdbcType=VARCHAR},
+      PAYLOGTYPE = #{paylogtype,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select ID, GMTCREATE, GMTMODIFIED, NAMECREATE, NAMEMODIFIED, ISDELETED, PAYSERIALNO, 
+    PAYID, PAYEE, PAYEENAME, AMOUNT, PAYOR, PAYORNAME, PAYTYPE, PAYTIME, PERIODCODE, 
+    PAYLOGTYPE
+    from t_pay_log
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select ID, GMTCREATE, GMTMODIFIED, NAMECREATE, NAMEMODIFIED, ISDELETED, PAYSERIALNO, 
+    PAYID, PAYEE, PAYEENAME, AMOUNT, PAYOR, PAYORNAME, PAYTYPE, PAYTIME, PERIODCODE, 
+    PAYLOGTYPE
+    from t_pay_log
+  </select>
+</mapper>
