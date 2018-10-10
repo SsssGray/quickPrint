@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.xydata.mapper.DrugRegistPublicMapper">
+  <resultMap id="BaseResultMap" type="cn.xydata.entity.DrugRegistPublic">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate" />
+    <result column="gmt_modify" jdbcType="TIMESTAMP" property="gmtModify" />
+    <result column="is_deleted" jdbcType="INTEGER" property="isDeleted" />
+    <result column="my_id" jdbcType="VARCHAR" property="myId" />
+    <result column="admissible_number" jdbcType="VARCHAR" property="admissibleNumber" />
+    <result column="record_number" jdbcType="VARCHAR" property="recordNumber" />
+    <result column="drug_name_cn" jdbcType="VARCHAR" property="drugNameCn" />
+    <result column="drug_name_en" jdbcType="VARCHAR" property="drugNameEn" />
+    <result column="drug_type" jdbcType="VARCHAR" property="drugType" />
+    <result column="dosage" jdbcType="VARCHAR" property="dosage" />
+    <result column="specifications" jdbcType="VARCHAR" property="specifications" />
+    <result column="pkg_spec" jdbcType="VARCHAR" property="pkgSpec" />
+    <result column="approval_number" jdbcType="VARCHAR" property="approvalNumber" />
+    <result column="drug_standard" jdbcType="VARCHAR" property="drugStandard" />
+    <result column="record_content" jdbcType="VARCHAR" property="recordContent" />
+    <result column="product_unit" jdbcType="VARCHAR" property="productUnit" />
+    <result column="record_dept" jdbcType="VARCHAR" property="recordDept" />
+    <result column="record_time" jdbcType="VARCHAR" property="recordTime" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from drug_regist_public
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.xydata.entity.DrugRegistPublic">
+    insert into drug_regist_public (id, gmt_create, gmt_modify, 
+      is_deleted, my_id, admissible_number, 
+      record_number, drug_name_cn, drug_name_en, 
+      drug_type, dosage, specifications, 
+      pkg_spec, approval_number, drug_standard, 
+      record_content, product_unit, record_dept, 
+      record_time)
+    values (#{id,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModify,jdbcType=TIMESTAMP}, 
+      #{isDeleted,jdbcType=INTEGER}, #{myId,jdbcType=VARCHAR}, #{admissibleNumber,jdbcType=VARCHAR}, 
+      #{recordNumber,jdbcType=VARCHAR}, #{drugNameCn,jdbcType=VARCHAR}, #{drugNameEn,jdbcType=VARCHAR}, 
+      #{drugType,jdbcType=VARCHAR}, #{dosage,jdbcType=VARCHAR}, #{specifications,jdbcType=VARCHAR}, 
+      #{pkgSpec,jdbcType=VARCHAR}, #{approvalNumber,jdbcType=VARCHAR}, #{drugStandard,jdbcType=VARCHAR}, 
+      #{recordContent,jdbcType=VARCHAR}, #{productUnit,jdbcType=VARCHAR}, #{recordDept,jdbcType=VARCHAR}, 
+      #{recordTime,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="cn.xydata.entity.DrugRegistPublic">
+    update drug_regist_public
+    set gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      gmt_modify = #{gmtModify,jdbcType=TIMESTAMP},
+      is_deleted = #{isDeleted,jdbcType=INTEGER},
+      my_id = #{myId,jdbcType=VARCHAR},
+      admissible_number = #{admissibleNumber,jdbcType=VARCHAR},
+      record_number = #{recordNumber,jdbcType=VARCHAR},
+      drug_name_cn = #{drugNameCn,jdbcType=VARCHAR},
+      drug_name_en = #{drugNameEn,jdbcType=VARCHAR},
+      drug_type = #{drugType,jdbcType=VARCHAR},
+      dosage = #{dosage,jdbcType=VARCHAR},
+      specifications = #{specifications,jdbcType=VARCHAR},
+      pkg_spec = #{pkgSpec,jdbcType=VARCHAR},
+      approval_number = #{approvalNumber,jdbcType=VARCHAR},
+      drug_standard = #{drugStandard,jdbcType=VARCHAR},
+      record_content = #{recordContent,jdbcType=VARCHAR},
+      product_unit = #{productUnit,jdbcType=VARCHAR},
+      record_dept = #{recordDept,jdbcType=VARCHAR},
+      record_time = #{recordTime,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select id, gmt_create, gmt_modify, is_deleted, my_id, admissible_number, record_number, 
+    drug_name_cn, drug_name_en, drug_type, dosage, specifications, pkg_spec, approval_number, 
+    drug_standard, record_content, product_unit, record_dept, record_time
+    from drug_regist_public
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, gmt_create, gmt_modify, is_deleted, my_id, admissible_number, record_number, 
+    drug_name_cn, drug_name_en, drug_type, dosage, specifications, pkg_spec, approval_number, 
+    drug_standard, record_content, product_unit, record_dept, record_time
+    from drug_regist_public
+  </select>
+</mapper>

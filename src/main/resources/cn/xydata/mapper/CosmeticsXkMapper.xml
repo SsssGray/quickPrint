@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.xydata.mapper.CosmeticsXkMapper">
+  <resultMap id="BaseResultMap" type="cn.xydata.entity.CosmeticsXk">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate" />
+    <result column="gmt_modify" jdbcType="TIMESTAMP" property="gmtModify" />
+    <result column="company_name" jdbcType="VARCHAR" property="companyName" />
+    <result column="license_no" jdbcType="VARCHAR" property="licenseNo" />
+    <result column="licensing" jdbcType="VARCHAR" property="licensing" />
+    <result column="corporate_residence" jdbcType="VARCHAR" property="corporateResidence" />
+    <result column="productionaddress" jdbcType="VARCHAR" property="productionaddress" />
+    <result column="social_credit_code" jdbcType="VARCHAR" property="socialCreditCode" />
+    <result column="legalrepresentative" jdbcType="VARCHAR" property="legalrepresentative" />
+    <result column="responsibleperson" jdbcType="VARCHAR" property="responsibleperson" />
+    <result column="qualityleader" jdbcType="VARCHAR" property="qualityleader" />
+    <result column="certificationauthority" jdbcType="VARCHAR" property="certificationauthority" />
+    <result column="issuer" jdbcType="VARCHAR" property="issuer" />
+    <result column="daily_supervision_and_management_organization" jdbcType="VARCHAR" property="dailySupervisionAndManagementOrganization" />
+    <result column="daily_supervision_and_management_personnel" jdbcType="VARCHAR" property="dailySupervisionAndManagementPersonnel" />
+    <result column="validuntil" jdbcType="VARCHAR" property="validuntil" />
+    <result column="issue_date" jdbcType="VARCHAR" property="issueDate" />
+    <result column="state" jdbcType="VARCHAR" property="state" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from cosmetics_xk
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.xydata.entity.CosmeticsXk">
+    insert into cosmetics_xk (id, gmt_create, gmt_modify, 
+      company_name, license_no, licensing, 
+      corporate_residence, productionaddress, 
+      social_credit_code, legalrepresentative, 
+      responsibleperson, qualityleader, certificationauthority, 
+      issuer, daily_supervision_and_management_organization, 
+      daily_supervision_and_management_personnel, validuntil, 
+      issue_date, state)
+    values (#{id,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModify,jdbcType=TIMESTAMP}, 
+      #{companyName,jdbcType=VARCHAR}, #{licenseNo,jdbcType=VARCHAR}, #{licensing,jdbcType=VARCHAR}, 
+      #{corporateResidence,jdbcType=VARCHAR}, #{productionaddress,jdbcType=VARCHAR}, 
+      #{socialCreditCode,jdbcType=VARCHAR}, #{legalrepresentative,jdbcType=VARCHAR}, 
+      #{responsibleperson,jdbcType=VARCHAR}, #{qualityleader,jdbcType=VARCHAR}, #{certificationauthority,jdbcType=VARCHAR}, 
+      #{issuer,jdbcType=VARCHAR}, #{dailySupervisionAndManagementOrganization,jdbcType=VARCHAR}, 
+      #{dailySupervisionAndManagementPersonnel,jdbcType=VARCHAR}, #{validuntil,jdbcType=VARCHAR}, 
+      #{issueDate,jdbcType=VARCHAR}, #{state,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="cn.xydata.entity.CosmeticsXk">
+    update cosmetics_xk
+    set gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      gmt_modify = #{gmtModify,jdbcType=TIMESTAMP},
+      company_name = #{companyName,jdbcType=VARCHAR},
+      license_no = #{licenseNo,jdbcType=VARCHAR},
+      licensing = #{licensing,jdbcType=VARCHAR},
+      corporate_residence = #{corporateResidence,jdbcType=VARCHAR},
+      productionaddress = #{productionaddress,jdbcType=VARCHAR},
+      social_credit_code = #{socialCreditCode,jdbcType=VARCHAR},
+      legalrepresentative = #{legalrepresentative,jdbcType=VARCHAR},
+      responsibleperson = #{responsibleperson,jdbcType=VARCHAR},
+      qualityleader = #{qualityleader,jdbcType=VARCHAR},
+      certificationauthority = #{certificationauthority,jdbcType=VARCHAR},
+      issuer = #{issuer,jdbcType=VARCHAR},
+      daily_supervision_and_management_organization = #{dailySupervisionAndManagementOrganization,jdbcType=VARCHAR},
+      daily_supervision_and_management_personnel = #{dailySupervisionAndManagementPersonnel,jdbcType=VARCHAR},
+      validuntil = #{validuntil,jdbcType=VARCHAR},
+      issue_date = #{issueDate,jdbcType=VARCHAR},
+      state = #{state,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select id, gmt_create, gmt_modify, company_name, license_no, licensing, corporate_residence, 
+    productionaddress, social_credit_code, legalrepresentative, responsibleperson, qualityleader, 
+    certificationauthority, issuer, daily_supervision_and_management_organization, daily_supervision_and_management_personnel, 
+    validuntil, issue_date, state
+    from cosmetics_xk
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, gmt_create, gmt_modify, company_name, license_no, licensing, corporate_residence, 
+    productionaddress, social_credit_code, legalrepresentative, responsibleperson, qualityleader, 
+    certificationauthority, issuer, daily_supervision_and_management_organization, daily_supervision_and_management_personnel, 
+    validuntil, issue_date, state
+    from cosmetics_xk
+  </select>
+</mapper>

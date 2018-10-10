@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.xydata.mapper.FoodQsMapper">
+  <resultMap id="BaseResultMap" type="cn.xydata.entity.FoodQs">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate" />
+    <result column="gmt_modify" jdbcType="TIMESTAMP" property="gmtModify" />
+    <result column="cert_code" jdbcType="VARCHAR" property="certCode" />
+    <result column="enterprise_name" jdbcType="VARCHAR" property="enterpriseName" />
+    <result column="product_name" jdbcType="VARCHAR" property="productName" />
+    <result column="homt_address" jdbcType="VARCHAR" property="homtAddress" />
+    <result column="product_address" jdbcType="VARCHAR" property="productAddress" />
+    <result column="check_type" jdbcType="VARCHAR" property="checkType" />
+    <result column="lussing_time" jdbcType="VARCHAR" property="lussingTime" />
+    <result column="term_of_validity" jdbcType="VARCHAR" property="termOfValidity" />
+    <result column="Issuing_organ" jdbcType="VARCHAR" property="issuingOrgan" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="my_id" jdbcType="VARCHAR" property="myId" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from food_qs
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.xydata.entity.FoodQs">
+    insert into food_qs (id, gmt_create, gmt_modify, 
+      cert_code, enterprise_name, product_name, 
+      homt_address, product_address, check_type, 
+      lussing_time, term_of_validity, Issuing_organ, 
+      remark, my_id)
+    values (#{id,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModify,jdbcType=TIMESTAMP}, 
+      #{certCode,jdbcType=VARCHAR}, #{enterpriseName,jdbcType=VARCHAR}, #{productName,jdbcType=VARCHAR}, 
+      #{homtAddress,jdbcType=VARCHAR}, #{productAddress,jdbcType=VARCHAR}, #{checkType,jdbcType=VARCHAR}, 
+      #{lussingTime,jdbcType=VARCHAR}, #{termOfValidity,jdbcType=VARCHAR}, #{issuingOrgan,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{myId,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="cn.xydata.entity.FoodQs">
+    update food_qs
+    set gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      gmt_modify = #{gmtModify,jdbcType=TIMESTAMP},
+      cert_code = #{certCode,jdbcType=VARCHAR},
+      enterprise_name = #{enterpriseName,jdbcType=VARCHAR},
+      product_name = #{productName,jdbcType=VARCHAR},
+      homt_address = #{homtAddress,jdbcType=VARCHAR},
+      product_address = #{productAddress,jdbcType=VARCHAR},
+      check_type = #{checkType,jdbcType=VARCHAR},
+      lussing_time = #{lussingTime,jdbcType=VARCHAR},
+      term_of_validity = #{termOfValidity,jdbcType=VARCHAR},
+      Issuing_organ = #{issuingOrgan,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      my_id = #{myId,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select id, gmt_create, gmt_modify, cert_code, enterprise_name, product_name, homt_address, 
+    product_address, check_type, lussing_time, term_of_validity, Issuing_organ, remark, 
+    my_id
+    from food_qs
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, gmt_create, gmt_modify, cert_code, enterprise_name, product_name, homt_address, 
+    product_address, check_type, lussing_time, term_of_validity, Issuing_organ, remark, 
+    my_id
+    from food_qs
+  </select>
+</mapper>

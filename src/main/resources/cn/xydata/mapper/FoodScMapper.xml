@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.xydata.mapper.FoodScMapper">
+  <resultMap id="BaseResultMap" type="cn.xydata.entity.FoodSc">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate" />
+    <result column="gmt_modify" jdbcType="TIMESTAMP" property="gmtModify" />
+    <result column="product_name" jdbcType="VARCHAR" property="productName" />
+    <result column="social_credit_code" jdbcType="VARCHAR" property="socialCreditCode" />
+    <result column="legal_person" jdbcType="VARCHAR" property="legalPerson" />
+    <result column="residence" jdbcType="VARCHAR" property="residence" />
+    <result column="product_addr" jdbcType="VARCHAR" property="productAddr" />
+    <result column="food_type" jdbcType="VARCHAR" property="foodType" />
+    <result column="license_number" jdbcType="VARCHAR" property="licenseNumber" />
+    <result column="daily_mechanism" jdbcType="VARCHAR" property="dailyMechanism" />
+    <result column="daily_person" jdbcType="VARCHAR" property="dailyPerson" />
+    <result column="Issuing_organ" jdbcType="VARCHAR" property="issuingOrgan" />
+    <result column="Issuing_person" jdbcType="VARCHAR" property="issuingPerson" />
+    <result column="lussing_time" jdbcType="VARCHAR" property="lussingTime" />
+    <result column="term_of_validity" jdbcType="VARCHAR" property="termOfValidity" />
+    <result column="my_id" jdbcType="VARCHAR" property="myId" />
+    <result column="permission_detail" jdbcType="LONGVARCHAR" property="permissionDetail" />
+    <result column="remark" jdbcType="LONGVARCHAR" property="remark" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from food_sc
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.xydata.entity.FoodSc">
+    insert into food_sc (id, gmt_create, gmt_modify, 
+      product_name, social_credit_code, legal_person, 
+      residence, product_addr, food_type, 
+      license_number, daily_mechanism, daily_person, 
+      Issuing_organ, Issuing_person, lussing_time, 
+      term_of_validity, my_id, permission_detail, 
+      remark)
+    values (#{id,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModify,jdbcType=TIMESTAMP}, 
+      #{productName,jdbcType=VARCHAR}, #{socialCreditCode,jdbcType=VARCHAR}, #{legalPerson,jdbcType=VARCHAR}, 
+      #{residence,jdbcType=VARCHAR}, #{productAddr,jdbcType=VARCHAR}, #{foodType,jdbcType=VARCHAR}, 
+      #{licenseNumber,jdbcType=VARCHAR}, #{dailyMechanism,jdbcType=VARCHAR}, #{dailyPerson,jdbcType=VARCHAR}, 
+      #{issuingOrgan,jdbcType=VARCHAR}, #{issuingPerson,jdbcType=VARCHAR}, #{lussingTime,jdbcType=VARCHAR}, 
+      #{termOfValidity,jdbcType=VARCHAR}, #{myId,jdbcType=VARCHAR}, #{permissionDetail,jdbcType=LONGVARCHAR}, 
+      #{remark,jdbcType=LONGVARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="cn.xydata.entity.FoodSc">
+    update food_sc
+    set gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      gmt_modify = #{gmtModify,jdbcType=TIMESTAMP},
+      product_name = #{productName,jdbcType=VARCHAR},
+      social_credit_code = #{socialCreditCode,jdbcType=VARCHAR},
+      legal_person = #{legalPerson,jdbcType=VARCHAR},
+      residence = #{residence,jdbcType=VARCHAR},
+      product_addr = #{productAddr,jdbcType=VARCHAR},
+      food_type = #{foodType,jdbcType=VARCHAR},
+      license_number = #{licenseNumber,jdbcType=VARCHAR},
+      daily_mechanism = #{dailyMechanism,jdbcType=VARCHAR},
+      daily_person = #{dailyPerson,jdbcType=VARCHAR},
+      Issuing_organ = #{issuingOrgan,jdbcType=VARCHAR},
+      Issuing_person = #{issuingPerson,jdbcType=VARCHAR},
+      lussing_time = #{lussingTime,jdbcType=VARCHAR},
+      term_of_validity = #{termOfValidity,jdbcType=VARCHAR},
+      my_id = #{myId,jdbcType=VARCHAR},
+      permission_detail = #{permissionDetail,jdbcType=LONGVARCHAR},
+      remark = #{remark,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select id, gmt_create, gmt_modify, product_name, social_credit_code, legal_person, 
+    residence, product_addr, food_type, license_number, daily_mechanism, daily_person, 
+    Issuing_organ, Issuing_person, lussing_time, term_of_validity, my_id, permission_detail, 
+    remark
+    from food_sc
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, gmt_create, gmt_modify, product_name, social_credit_code, legal_person, 
+    residence, product_addr, food_type, license_number, daily_mechanism, daily_person, 
+    Issuing_organ, Issuing_person, lussing_time, term_of_validity, my_id, permission_detail, 
+    remark
+    from food_sc
+  </select>
+</mapper>

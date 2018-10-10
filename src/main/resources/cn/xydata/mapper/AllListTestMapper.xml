@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.xydata.mapper.AllListTestMapper">
+  <resultMap id="BaseResultMap" type="cn.xydata.entity.AllListTest">
+    <id column="my_id" jdbcType="INTEGER" property="myId" />
+    <result column="gmt_create" jdbcType="VARCHAR" property="gmtCreate" />
+    <result column="gmt_modify" jdbcType="VARCHAR" property="gmtModify" />
+    <result column="id" jdbcType="VARCHAR" property="id" />
+    <result column="count" jdbcType="INTEGER" property="count" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="key_code" jdbcType="VARCHAR" property="keyCode" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from all_list_test
+    where my_id = #{myId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.xydata.entity.AllListTest">
+    insert into all_list_test (my_id, gmt_create, gmt_modify, 
+      id, count, content, 
+      type, name, key_code
+      )
+    values (#{myId,jdbcType=INTEGER}, #{gmtCreate,jdbcType=VARCHAR}, #{gmtModify,jdbcType=VARCHAR}, 
+      #{id,jdbcType=VARCHAR}, #{count,jdbcType=INTEGER}, #{content,jdbcType=VARCHAR}, 
+      #{type,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{keyCode,jdbcType=VARCHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="cn.xydata.entity.AllListTest">
+    update all_list_test
+    set gmt_create = #{gmtCreate,jdbcType=VARCHAR},
+      gmt_modify = #{gmtModify,jdbcType=VARCHAR},
+      id = #{id,jdbcType=VARCHAR},
+      count = #{count,jdbcType=INTEGER},
+      content = #{content,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      key_code = #{keyCode,jdbcType=VARCHAR}
+    where my_id = #{myId,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select my_id, gmt_create, gmt_modify, id, count, content, type, name, key_code
+    from all_list_test
+    where my_id = #{myId,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select my_id, gmt_create, gmt_modify, id, count, content, type, name, key_code
+    from all_list_test
+  </select>
+</mapper>

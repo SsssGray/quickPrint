@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.xydata.mapper.DataMapper">
+  <resultMap id="BaseResultMap" type="cn.xydata.entity.Data">
+    <id column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="id" jdbcType="BIGINT" property="id" />
+    <result column="OPER_ID" jdbcType="VARCHAR" property="operId" />
+    <result column="ORG_ID" jdbcType="VARCHAR" property="orgId" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="phone_status" jdbcType="VARCHAR" property="phoneStatus" />
+    <result column="county" jdbcType="VARCHAR" property="county" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="net_age" jdbcType="INTEGER" property="netAge" />
+    <result column="offer_name" jdbcType="VARCHAR" property="offerName" />
+    <result column="_virtual" jdbcType="VARCHAR" property="virtual" />
+    <result column="family" jdbcType="VARCHAR" property="family" />
+    <result column="avg_flow" jdbcType="REAL" property="avgFlow" />
+    <result column="avg_cost" jdbcType="REAL" property="avgCost" />
+    <result column="real_name" jdbcType="VARCHAR" property="realName" />
+    <result column="id_type" jdbcType="VARCHAR" property="idType" />
+    <result column="addr" jdbcType="VARCHAR" property="addr" />
+    <result column="voice" jdbcType="LONGVARCHAR" property="voice" />
+    <result column="flow" jdbcType="LONGVARCHAR" property="flow" />
+    <result column="flow_share" jdbcType="LONGVARCHAR" property="flowShare" />
+    <result column="ordered_1" jdbcType="LONGVARCHAR" property="ordered1" />
+    <result column="ordered_2" jdbcType="LONGVARCHAR" property="ordered2" />
+    <result column="ordered_3" jdbcType="LONGVARCHAR" property="ordered3" />
+    <result column="recommend" jdbcType="LONGVARCHAR" property="recommend" />
+    <result column="user_info" jdbcType="LONGVARCHAR" property="userInfo" />
+    <result column="code" jdbcType="LONGVARCHAR" property="code" />
+    <result column="spare_1" jdbcType="LONGVARCHAR" property="spare1" />
+    <result column="spare_2" jdbcType="LONGVARCHAR" property="spare2" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from data
+    where phone = #{phone,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.xydata.entity.Data">
+    insert into data (phone, id, OPER_ID, 
+      ORG_ID, user_id, phone_status, 
+      county, city, user_name, 
+      net_age, offer_name, _virtual, 
+      family, avg_flow, avg_cost, 
+      real_name, id_type, addr, 
+      voice, flow, flow_share, 
+      ordered_1, ordered_2, ordered_3, 
+      recommend, user_info, code, 
+      spare_1, spare_2)
+    values (#{phone,jdbcType=VARCHAR}, #{id,jdbcType=BIGINT}, #{operId,jdbcType=VARCHAR}, 
+      #{orgId,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{phoneStatus,jdbcType=VARCHAR}, 
+      #{county,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, 
+      #{netAge,jdbcType=INTEGER}, #{offerName,jdbcType=VARCHAR}, #{virtual,jdbcType=VARCHAR}, 
+      #{family,jdbcType=VARCHAR}, #{avgFlow,jdbcType=REAL}, #{avgCost,jdbcType=REAL}, 
+      #{realName,jdbcType=VARCHAR}, #{idType,jdbcType=VARCHAR}, #{addr,jdbcType=VARCHAR}, 
+      #{voice,jdbcType=LONGVARCHAR}, #{flow,jdbcType=LONGVARCHAR}, #{flowShare,jdbcType=LONGVARCHAR}, 
+      #{ordered1,jdbcType=LONGVARCHAR}, #{ordered2,jdbcType=LONGVARCHAR}, #{ordered3,jdbcType=LONGVARCHAR}, 
+      #{recommend,jdbcType=LONGVARCHAR}, #{userInfo,jdbcType=LONGVARCHAR}, #{code,jdbcType=LONGVARCHAR}, 
+      #{spare1,jdbcType=LONGVARCHAR}, #{spare2,jdbcType=LONGVARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="cn.xydata.entity.Data">
+    update data
+    set id = #{id,jdbcType=BIGINT},
+      OPER_ID = #{operId,jdbcType=VARCHAR},
+      ORG_ID = #{orgId,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=VARCHAR},
+      phone_status = #{phoneStatus,jdbcType=VARCHAR},
+      county = #{county,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      user_name = #{userName,jdbcType=VARCHAR},
+      net_age = #{netAge,jdbcType=INTEGER},
+      offer_name = #{offerName,jdbcType=VARCHAR},
+      _virtual = #{virtual,jdbcType=VARCHAR},
+      family = #{family,jdbcType=VARCHAR},
+      avg_flow = #{avgFlow,jdbcType=REAL},
+      avg_cost = #{avgCost,jdbcType=REAL},
+      real_name = #{realName,jdbcType=VARCHAR},
+      id_type = #{idType,jdbcType=VARCHAR},
+      addr = #{addr,jdbcType=VARCHAR},
+      voice = #{voice,jdbcType=LONGVARCHAR},
+      flow = #{flow,jdbcType=LONGVARCHAR},
+      flow_share = #{flowShare,jdbcType=LONGVARCHAR},
+      ordered_1 = #{ordered1,jdbcType=LONGVARCHAR},
+      ordered_2 = #{ordered2,jdbcType=LONGVARCHAR},
+      ordered_3 = #{ordered3,jdbcType=LONGVARCHAR},
+      recommend = #{recommend,jdbcType=LONGVARCHAR},
+      user_info = #{userInfo,jdbcType=LONGVARCHAR},
+      code = #{code,jdbcType=LONGVARCHAR},
+      spare_1 = #{spare1,jdbcType=LONGVARCHAR},
+      spare_2 = #{spare2,jdbcType=LONGVARCHAR}
+    where phone = #{phone,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select phone, id, OPER_ID, ORG_ID, user_id, phone_status, county, city, user_name, 
+    net_age, offer_name, _virtual, family, avg_flow, avg_cost, real_name, id_type, addr, 
+    voice, flow, flow_share, ordered_1, ordered_2, ordered_3, recommend, user_info, code, 
+    spare_1, spare_2
+    from data
+    where phone = #{phone,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select phone, id, OPER_ID, ORG_ID, user_id, phone_status, county, city, user_name, 
+    net_age, offer_name, _virtual, family, avg_flow, avg_cost, real_name, id_type, addr, 
+    voice, flow, flow_share, ordered_1, ordered_2, ordered_3, recommend, user_info, code, 
+    spare_1, spare_2
+    from data
+  </select>
+</mapper>

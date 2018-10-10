@@ -4,11 +4,11 @@ import cn.xydata.entity.TUserWorkinjury;
 import java.util.List;
 
 public interface TUserWorkinjuryMapper {
-    int deleteByPrimaryKey(Integer id);
+    int deleteByPrimaryKey(String id);
 
     int insert(TUserWorkinjury record);
 
-    TUserWorkinjury selectByPrimaryKey(Integer id);
+    TUserWorkinjury selectByPrimaryKey(String id);
 
     List<TUserWorkinjury> selectAll();
 

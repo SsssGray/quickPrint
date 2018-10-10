@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.xydata.mapper.CompanyInfoMapper">
+  <resultMap id="BaseResultMap" type="cn.xydata.entity.CompanyInfo">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="gmt_create" jdbcType="VARCHAR" property="gmtCreate" />
+    <result column="gmt_modify" jdbcType="VARCHAR" property="gmtModify" />
+    <result column="social_credit_code" jdbcType="VARCHAR" property="socialCreditCode" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="legal_person" jdbcType="VARCHAR" property="legalPerson" />
+    <result column="registered_capital" jdbcType="VARCHAR" property="registeredCapital" />
+    <result column="founding_time" jdbcType="VARCHAR" property="foundingTime" />
+    <result column="business_start" jdbcType="VARCHAR" property="businessStart" />
+    <result column="business_end" jdbcType="VARCHAR" property="businessEnd" />
+    <result column="regist_authority" jdbcType="VARCHAR" property="registAuthority" />
+    <result column="approval_time" jdbcType="VARCHAR" property="approvalTime" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="scope_operation" jdbcType="VARCHAR" property="scopeOperation" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from company_info
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="cn.xydata.entity.CompanyInfo">
+    insert into company_info (id, gmt_create, gmt_modify, 
+      social_credit_code, name, type, 
+      legal_person, registered_capital, founding_time, 
+      business_start, business_end, regist_authority, 
+      approval_time, status, address, 
+      scope_operation)
+    values (#{id,jdbcType=VARCHAR}, #{gmtCreate,jdbcType=VARCHAR}, #{gmtModify,jdbcType=VARCHAR}, 
+      #{socialCreditCode,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, 
+      #{legalPerson,jdbcType=VARCHAR}, #{registeredCapital,jdbcType=VARCHAR}, #{foundingTime,jdbcType=VARCHAR}, 
+      #{businessStart,jdbcType=VARCHAR}, #{businessEnd,jdbcType=VARCHAR}, #{registAuthority,jdbcType=VARCHAR}, 
+      #{approvalTime,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+      #{scopeOperation,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="cn.xydata.entity.CompanyInfo">
+    update company_info
+    set gmt_create = #{gmtCreate,jdbcType=VARCHAR},
+      gmt_modify = #{gmtModify,jdbcType=VARCHAR},
+      social_credit_code = #{socialCreditCode,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      legal_person = #{legalPerson,jdbcType=VARCHAR},
+      registered_capital = #{registeredCapital,jdbcType=VARCHAR},
+      founding_time = #{foundingTime,jdbcType=VARCHAR},
+      business_start = #{businessStart,jdbcType=VARCHAR},
+      business_end = #{businessEnd,jdbcType=VARCHAR},
+      regist_authority = #{registAuthority,jdbcType=VARCHAR},
+      approval_time = #{approvalTime,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      scope_operation = #{scopeOperation,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select id, gmt_create, gmt_modify, social_credit_code, name, type, legal_person, 
+    registered_capital, founding_time, business_start, business_end, regist_authority, 
+    approval_time, status, address, scope_operation
+    from company_info
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, gmt_create, gmt_modify, social_credit_code, name, type, legal_person, 
+    registered_capital, founding_time, business_start, business_end, regist_authority, 
+    approval_time, status, address, scope_operation
+    from company_info
+  </select>
+</mapper>
